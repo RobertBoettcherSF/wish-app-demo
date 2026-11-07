@@ -8,8 +8,8 @@
     <meta name="theme-color" content="#141b24" />
     <meta name="format-detection" content="telephone=no" />
     <title>Wish shell</title>
-    <script type="module" crossorigin src="./assets/index-BpibU3WZ.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-BBgwJaF8.css">
+    <script type="module" crossorigin src="./assets/index-DX0sRci8.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-Bdm4yvd5.css">
   </head>
   <body>
     <a class="skip" href="#content" data-i18n="skip">Skip to content</a>
@@ -105,6 +105,23 @@
           <label class="choice"><input type="radio" name="locale-choice" value="de" /> <span data-i18n="language.de">Deutsch</span></label>
           <p class="hint" data-i18n="language.hint">This choice is stored on this device. Wish text is kept as you typed it and is not translated.</p>
           <button type="button" class="primary" id="open-gallery" data-i18n="language.openGallery">Open gallery</button>
+        </fieldset>
+
+        <fieldset class="card">
+          <legend data-i18n="backup.legend">Backup</legend>
+          <p class="hint" data-i18n="backup.intro">A backup file contains the wishes stored in this browser, including the text. It is not encrypted. Nothing is uploaded. This app cannot confirm that the browser saved the file on disk.</p>
+          <button type="button" class="primary" id="backup-export" data-i18n="backup.export">Prepare backup file</button>
+          <label class="choice" for="backup-file"><span data-i18n="backup.choose">Choose a backup file</span></label>
+          <input id="backup-file" type="file" accept="application/json,.json" />
+          <p id="backup-status" role="status"></p>
+          <div id="backup-preview" hidden>
+            <p id="backup-summary"></p>
+            <ul id="backup-conflicts"></ul>
+            <div class="action-row">
+              <button type="button" class="primary" id="backup-confirm" data-i18n="backup.confirm" disabled>Import these wishes</button>
+              <button type="button" id="backup-cancel" data-i18n="backup.cancel">Cancel import</button>
+            </div>
+          </div>
         </fieldset>
 
         <fieldset class="card">

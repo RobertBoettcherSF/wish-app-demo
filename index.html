@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#141b24" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>Wish shell</title>
+    <script type="module" crossorigin src="./assets/index-Cn2U5ylV.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-OZJdHBz7.css">
+  </head>
+  <body>
+    <a class="skip" href="#content">Skip to content</a>
+    <canvas id="rain" width="2" height="2" aria-hidden="true"></canvas>
+
+    <header class="topbar">
+      <div class="titles">
+        <h1 id="view-title">Gallery</h1>
+        <p id="view-state"></p>
+      </div>
+      <p class="version-badge" id="version-badge"></p>
+      <button type="button" class="debug-button" id="debug-button" aria-haspopup="dialog" aria-controls="debug-dialog" aria-expanded="false">
+        Debug
+      </button>
+    </header>
+
+    <main id="content" class="content" tabindex="-1">
+      <section id="panel-gallery" role="tabpanel" aria-labelledby="tab-gallery" tabindex="0">
+        <div class="card">
+          <p class="banner">Not implemented</p>
+          <h2>Gallery</h2>
+          <p>Wishes are not stored. There is nowhere to add, edit, or keep a wish.</p>
+        </div>
+        <article class="card sample" aria-label="Layout sample">
+          <p class="sample-flag">Layout sample only</p>
+          <div class="sample-frame" aria-hidden="true"></div>
+          <p>This empty frame shows the gallery shape. It is not a wish, and it is not saved.</p>
+        </article>
+      </section>
+
+      <section id="panel-reinforce" role="tabpanel" aria-labelledby="tab-reinforce" tabindex="0" hidden>
+        <div class="card">
+          <p class="banner">Not implemented</p>
+          <h2>Reinforce</h2>
+          <p>Prompting, prayer recording, repetition, and reminders are not part of this shell.</p>
+        </div>
+      </section>
+
+      <section id="panel-history" role="tabpanel" aria-labelledby="tab-history" tabindex="0" hidden>
+        <div class="card">
+          <p class="banner">Not implemented</p>
+          <h2>History</h2>
+          <p>No wish activity is recorded here. Debug keeps a short technical trace of interface actions. That trace is not a history of wishes, and an export is not a backup.</p>
+        </div>
+      </section>
+
+      <section id="panel-statistics" role="tabpanel" aria-labelledby="tab-statistics" tabindex="0" hidden>
+        <div class="card">
+          <p class="banner">Not implemented</p>
+          <h2>Statistics</h2>
+          <p>No figures are shown because none are collected. This screen is not live.</p>
+        </div>
+      </section>
+
+      <section id="panel-settings" role="tabpanel" aria-labelledby="tab-settings" tabindex="0" hidden>
+        <div class="card">
+          <h2>Settings</h2>
+          <p>Sound and rain preferences can be stored on this device. Wishes are not.</p>
+        </div>
+
+        <fieldset class="card">
+          <legend>Sound</legend>
+          <button type="button" class="switch" id="mute-switch" role="switch" aria-checked="false">Mute sound</button>
+          <p id="sound-state">Sound is on</p>
+          <div class="slider-row">
+            <label for="volume">Volume</label>
+            <span id="volume-readout">40%</span>
+          </div>
+          <input id="volume" type="range" min="0" max="100" step="1" value="40" aria-valuemin="0" aria-valuemax="100" aria-valuetext="40 percent" />
+          <p class="hint">Volume applies while you move the slider and is stored when you release it. One soft tone plays for each completed action.</p>
+        </fieldset>
+
+        <fieldset class="card">
+          <legend>Sanskrit rain</legend>
+          <label class="choice"><input type="radio" name="rain-mode" id="rain-auto" value="auto" checked /> Allow the rain to move</label>
+          <label class="choice"><input type="radio" name="rain-mode" id="rain-static" value="static" /> Keep the rain still</label>
+          <p class="hint">If the system asks for reduced motion, the rain stays still even when movement is allowed. The glyphs are decorative Devanagari clusters, including conjuncts, not a reading text.</p>
+        </fieldset>
+
+        <div class="card">
+          <h2>About this shell</h2>
+          <p>App version <strong id="about-version"></strong></p>
+          <p>Wish shell is a local preview. It does not sign you in, sync, upload, or analyse usage.</p>
+        </div>
+
+        <div class="card">
+          <h2>Not in this version</h2>
+          <ul>
+            <li>Saving wishes</li>
+            <li>Editing or deleting wishes</li>
+            <li>Photos, voice, or other attachments</li>
+            <li>Reinforce recording and reminders</li>
+            <li>Wish history</li>
+            <li>Statistics and achievements</li>
+            <li>Money or spending</li>
+            <li>Accounts, sign-in, and cloud sync</li>
+            <li>Automatic uploads and analytics</li>
+            <li>Offline service-worker support</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <nav class="tabbar" role="tablist" aria-label="Primary">
+      <button type="button" role="tab" id="tab-gallery" aria-controls="panel-gallery" aria-selected="true" tabindex="0">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="7.5" height="7.5" rx="1.4"></rect><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.4"></rect><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.4"></rect><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.4"></rect></svg>
+        <span>Gallery</span>
+      </button>
+      <button type="button" role="tab" id="tab-reinforce" aria-controls="panel-reinforce" aria-selected="false" tabindex="-1">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="7.2"></circle><circle cx="12" cy="12" r="2.1"></circle></svg>
+        <span>Reinforce</span>
+      </button>
+      <button type="button" role="tab" id="tab-history" aria-controls="panel-history" aria-selected="false" tabindex="-1">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 7h14M5 12h14M5 17h9"></path></svg>
+        <span>History</span>
+      </button>
+      <button type="button" role="tab" id="tab-statistics" aria-controls="panel-statistics" aria-selected="false" tabindex="-1">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4.5 19 12l-7 7.5L5 12z"></path></svg>
+        <span>Statistics</span>
+      </button>
+      <button type="button" role="tab" id="tab-settings" aria-controls="panel-settings" aria-selected="false" tabindex="-1">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 8h16M4 16h16"></path><circle cx="9" cy="8" r="2.1"></circle><circle cx="15" cy="16" r="2.1"></circle></svg>
+        <span>Settings</span>
+      </button>
+    </nav>
+
+    <div id="debug-overlay" class="overlay" hidden>
+      <div role="dialog" aria-labelledby="debug-title" id="debug-dialog" class="dialog">
+        <div class="dialog-head">
+          <h2 id="debug-title" tabindex="-1">Diagnostics</h2>
+          <button type="button" id="debug-close">Close</button>
+        </div>
+
+        <div id="debug-form">
+          <p>App version <strong id="debug-version"></strong></p>
+          <p>Events <strong id="event-count"></strong>. The trace holds at most 200 interface actions, then drops the oldest. It is not a backup.</p>
+          <ul id="event-sample" aria-label="Recent interface actions"></ul>
+          <p id="note-disclosure" class="hint">This note is optional. It is not written into the event log. Tick “Include the note” to copy the words you type into the file. You will see them in the preview before anything is shared or saved. A note can contain private content. Up to 2,000 characters. Nothing is sent unless you choose Share or save file.</p>
+          <label class="note-label" for="diagnostic-note">Optional note</label>
+          <textarea id="diagnostic-note" maxlength="2000" rows="4" autocomplete="off" spellcheck="true" aria-describedby="note-disclosure" placeholder="Optional note"></textarea>
+          <label class="choice"><input type="checkbox" id="include-note" /> Include the note</label>
+          <button type="button" class="primary" id="preview-export">Preview export</button>
+        </div>
+
+        <div id="debug-preview" hidden>
+          <h3>Export preview</h3>
+          <p id="export-summary" tabindex="-1"></p>
+          <pre id="export-json" tabindex="0"></pre>
+          <div class="action-row">
+            <button type="button" class="primary" id="confirm-export">Share or save file</button>
+            <button type="button" id="preview-back">Back</button>
+          </div>
+          <p id="export-help" class="hint">If this browser can share a file, the system share sheet opens and you can cancel it. Otherwise the file downloads. Cancelling does not send anything. This app does not post the file by itself. A system share sheet may cover this page; Debug cannot be promised above that sheet.</p>
+        </div>
+        <p id="debug-status" role="status"></p>
+      </div>
+    </div>
+
+    <noscript>
+      <p class="noscript">Wish shell needs JavaScript to show this preview. It still does not store wishes.</p>
+    </noscript>
+  </body>
+</html>

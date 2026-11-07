@@ -8,11 +8,11 @@
     <meta name="theme-color" content="#141b24" />
     <meta name="format-detection" content="telephone=no" />
     <title>Wish shell</title>
-    <script type="module" crossorigin src="./assets/index-DPI5zDln.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-CQaFVUZg.css">
+    <script type="module" crossorigin src="./assets/index-BpibU3WZ.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BBgwJaF8.css">
   </head>
   <body>
-    <a class="skip" href="#content">Skip to content</a>
+    <a class="skip" href="#content" data-i18n="skip">Skip to content</a>
     <canvas id="rain" width="2" height="2" aria-hidden="true"></canvas>
 
     <header class="topbar">
@@ -21,9 +21,7 @@
         <p id="view-state"></p>
       </div>
       <p class="version-badge" id="version-badge"></p>
-      <button type="button" class="debug-button" id="debug-button" aria-haspopup="dialog" aria-controls="debug-dialog" aria-expanded="false">
-        Debug
-      </button>
+      <button type="button" class="debug-button" id="debug-button" data-i18n="debug.button" aria-haspopup="dialog" aria-controls="debug-dialog" aria-expanded="false">Debug</button>
     </header>
 
     <main id="content" class="content" tabindex="-1">
@@ -31,28 +29,28 @@
         <p id="shared-origin-warning" class="warning" hidden></p>
         <div id="wish-browser">
           <div class="card">
-            <h2>Gallery</h2>
+            <h2 data-i18n="gallery.heading">Gallery</h2>
             <p id="storage-notice"></p>
             <form id="wish-form">
-              <label class="note-label" for="wish-text">Wish</label>
-              <textarea id="wish-text" maxlength="2000" rows="4" autocomplete="off" spellcheck="true" placeholder="Wish text"></textarea>
+              <label class="note-label" for="wish-text" data-i18n="gallery.wish">Wish</label>
+              <textarea id="wish-text" maxlength="2000" rows="4" autocomplete="off" spellcheck="true" placeholder="Wish text" data-i18n-placeholder="gallery.placeholder"></textarea>
               <fieldset>
-                <legend>Theme</legend>
-                <label class="choice"><input type="radio" name="wish-theme" value="Care" /> Care</label>
-                <label class="choice"><input type="radio" name="wish-theme" value="Learn" /> Learn</label>
-                <label class="choice"><input type="radio" name="wish-theme" value="Make" /> Make</label>
-                <label class="choice"><input type="radio" name="wish-theme" value="Place" /> Place</label>
-                <label class="choice"><input type="radio" name="wish-theme" value="Practice" /> Practice</label>
+                <legend data-i18n="gallery.theme">Theme</legend>
+                <label class="choice"><input type="radio" name="wish-theme" value="Care" /> <span class="choice-copy"><span class="choice-title" data-i18n="theme.Care.name">Care</span><span class="choice-help" data-i18n="theme.Care.help">For people, health, or looking after someone.</span></span></label>
+                <label class="choice"><input type="radio" name="wish-theme" value="Learn" /> <span class="choice-copy"><span class="choice-title" data-i18n="theme.Learn.name">Learn</span><span class="choice-help" data-i18n="theme.Learn.help">For a skill, a subject, or something you want to understand.</span></span></label>
+                <label class="choice"><input type="radio" name="wish-theme" value="Make" /> <span class="choice-copy"><span class="choice-title" data-i18n="theme.Make.name">Make</span><span class="choice-help" data-i18n="theme.Make.help">For making, building, or creating something.</span></span></label>
+                <label class="choice"><input type="radio" name="wish-theme" value="Place" /> <span class="choice-copy"><span class="choice-title" data-i18n="theme.Place.name">Place</span><span class="choice-help" data-i18n="theme.Place.help">For a home, a room, or somewhere you want to be.</span></span></label>
+                <label class="choice"><input type="radio" name="wish-theme" value="Practice" /> <span class="choice-copy"><span class="choice-title" data-i18n="theme.Practice.name">Practice</span><span class="choice-help" data-i18n="theme.Practice.help">For a habit or a way of doing something you want to repeat.</span></span></label>
               </fieldset>
-              <label class="note-label" for="wish-priority">Priority label</label>
+              <label class="note-label" for="wish-priority" data-i18n="gallery.priority">Priority label</label>
               <input id="wish-priority" type="text" maxlength="40" autocomplete="off" spellcheck="true" />
-              <p class="hint">Optional. A label only, not a rank, and it does not order the list.</p>
-              <button type="submit" class="primary" id="wish-save">Save wish</button>
+              <p class="hint" data-i18n="gallery.priorityHint">Optional. A label only, not a rank, and it does not order the list.</p>
+              <button type="submit" class="primary" id="wish-save" data-i18n="gallery.save">Save wish</button>
               <p id="wish-save-status" role="status"></p>
             </form>
           </div>
           <div class="card">
-            <h2 id="saved-wishes-heading">Saved wishes</h2>
+            <h2 id="saved-wishes-heading" data-i18n="gallery.savedHeading">Saved wishes</h2>
             <p id="wish-load-status" role="status"></p>
             <p id="wish-empty" hidden></p>
             <p id="wish-hidden-note" class="hint" hidden></p>
@@ -60,146 +58,155 @@
           </div>
         </div>
         <div id="wish-detail" class="card" hidden>
-          <button type="button" id="wish-detail-back">Back to gallery</button>
-          <h2>Wish</h2>
+          <button type="button" id="wish-detail-back" data-i18n="gallery.back">Back to gallery</button>
+          <h2 data-i18n="gallery.detailHeading">Wish</h2>
           <p id="wish-detail-theme"></p>
           <p id="wish-detail-priority"></p>
           <p id="wish-detail-text"></p>
           <p id="wish-detail-added"></p>
-          <p class="hint">Editing and deleting are not available.</p>
+          <p class="hint" data-i18n="gallery.noEdit">Editing and deleting are not available.</p>
         </div>
       </section>
 
       <section id="panel-reinforce" role="tabpanel" aria-labelledby="tab-reinforce" tabindex="0" hidden>
         <div class="card">
-          <p class="banner">Not implemented</p>
-          <h2>Reinforce</h2>
-          <p>Prompting, prayer recording, repetition, and reminders are not part of this shell.</p>
+          <p class="banner" data-i18n="banner.notImplemented">Not implemented</p>
+          <h2 data-i18n="reinforce.heading">Reinforce</h2>
+          <p data-i18n="reinforce.body">Prompting, prayer recording, repetition, and reminders are not part of this shell.</p>
         </div>
       </section>
 
       <section id="panel-history" role="tabpanel" aria-labelledby="tab-history" tabindex="0" hidden>
         <div class="card">
-          <p class="banner">Not implemented</p>
-          <h2>History</h2>
-          <p>No history of changes is kept here. Wishes can be stored from the gallery. This screen does not list edits. Diagnostics are not that history, and an export is not a backup.</p>
+          <p class="banner" data-i18n="banner.notImplemented">Not implemented</p>
+          <h2 data-i18n="history.heading">History</h2>
+          <p data-i18n="history.body">No history of changes is kept here. Wishes can be stored from the gallery. This screen does not list edits. Diagnostics are not that history, and an export is not a backup.</p>
         </div>
       </section>
 
       <section id="panel-statistics" role="tabpanel" aria-labelledby="tab-statistics" tabindex="0" hidden>
         <div class="card">
-          <p class="banner">Not implemented</p>
-          <h2>Statistics</h2>
-          <p>No figures are shown because none are collected. This screen is not live.</p>
+          <p class="banner" data-i18n="banner.notImplemented">Not implemented</p>
+          <h2 data-i18n="statistics.heading">Statistics</h2>
+          <p data-i18n="statistics.body">No figures are shown because none are collected. This screen is not live.</p>
         </div>
       </section>
 
       <section id="panel-settings" role="tabpanel" aria-labelledby="tab-settings" tabindex="0" hidden>
         <div class="card">
-          <h2>Settings</h2>
-          <p>Sound and rain preferences can be stored on this device. Wishes are stored separately in this browser. They are not encrypted, and this app does not upload them.</p>
+          <h2 data-i18n="settings.heading">Settings</h2>
+          <p data-i18n="settings.intro">Sound and rain preferences can be stored on this device. Wishes are stored separately in this browser. They are not encrypted, and this app does not upload them.</p>
         </div>
 
         <fieldset class="card">
-          <legend>Sound</legend>
-          <button type="button" class="switch" id="mute-switch" role="switch" aria-checked="false">Mute sound</button>
+          <legend data-i18n="language.legend">Language</legend>
+          <label class="choice"><input type="radio" name="locale-choice" value="auto" /> <span data-i18n="language.auto">Match this browser</span></label>
+          <label class="choice"><input type="radio" name="locale-choice" value="en" /> <span data-i18n="language.en">English</span></label>
+          <label class="choice"><input type="radio" name="locale-choice" value="de" /> <span data-i18n="language.de">Deutsch</span></label>
+          <p class="hint" data-i18n="language.hint">This choice is stored on this device. Wish text is kept as you typed it and is not translated.</p>
+          <button type="button" class="primary" id="open-gallery" data-i18n="language.openGallery">Open gallery</button>
+        </fieldset>
+
+        <fieldset class="card">
+          <legend data-i18n="sound.legend">Sound</legend>
+          <button type="button" class="switch" id="mute-switch" role="switch" aria-checked="false" data-i18n="sound.mute">Mute sound</button>
           <p id="sound-state">Sound is on</p>
           <div class="slider-row">
-            <label for="volume">Volume</label>
+            <label for="volume" data-i18n="sound.volume">Volume</label>
             <span id="volume-readout">40%</span>
           </div>
           <input id="volume" type="range" min="0" max="100" step="1" value="40" aria-valuemin="0" aria-valuemax="100" aria-valuetext="40 percent" />
-          <p class="hint">Volume applies while you move the slider and is stored when you release it. One soft tone plays for each completed action.</p>
+          <p class="hint" data-i18n="sound.hint">Volume applies while you move the slider and is stored when you release it. One soft tone plays for each completed action.</p>
         </fieldset>
 
         <fieldset class="card">
-          <legend>Sanskrit rain</legend>
-          <label class="choice"><input type="radio" name="rain-mode" id="rain-auto" value="auto" checked /> Allow the rain to move</label>
-          <label class="choice"><input type="radio" name="rain-mode" id="rain-static" value="static" /> Keep the rain still</label>
-          <p class="hint">If the system asks for reduced motion, the rain stays still even when movement is allowed. The glyphs are decorative Devanagari clusters, including conjuncts, not a reading text.</p>
+          <legend data-i18n="rain.legend">Sanskrit rain</legend>
+          <label class="choice"><input type="radio" name="rain-mode" id="rain-auto" value="auto" checked /> <span data-i18n="rain.move">Allow the rain to move</span></label>
+          <label class="choice"><input type="radio" name="rain-mode" id="rain-static" value="static" /> <span data-i18n="rain.still">Keep the rain still</span></label>
+          <p class="hint" data-i18n="rain.hint">If the system asks for reduced motion, the rain stays still even when movement is allowed. The glyphs are decorative Devanagari clusters, including conjuncts, not a reading text.</p>
         </fieldset>
 
         <div class="card">
-          <h2>About this shell</h2>
-          <p>App version <strong id="about-version"></strong></p>
-          <p>Wish shell is a local preview. It does not sign you in, sync, upload, or analyse usage.</p>
+          <h2 data-i18n="about.heading">About this shell</h2>
+          <p><span data-i18n="about.versionLabel">App version</span> <strong id="about-version"></strong></p>
+          <p data-i18n="about.body">Wish shell is a local preview. It does not sign you in, sync, upload, or analyse usage.</p>
         </div>
 
         <div class="card">
-          <h2>Not in this version</h2>
+          <h2 data-i18n="missing.heading">Not in this version</h2>
           <ul>
-            <li>Editing or deleting wishes</li>
-            <li>Photos, voice, or other attachments</li>
-            <li>Reinforce recording and reminders</li>
-            <li>Wish history</li>
-            <li>Statistics and achievements</li>
-            <li>Money or spending</li>
-            <li>Accounts, sign-in, and cloud sync</li>
-            <li>Automatic uploads and analytics</li>
-            <li>Offline service-worker support</li>
-            <li>Backups</li>
+            <li data-i18n="missing.edit">Editing or deleting wishes</li>
+            <li data-i18n="missing.media">Photos, voice, or other attachments</li>
+            <li data-i18n="missing.reinforce">Reinforce recording and reminders</li>
+            <li data-i18n="missing.history">Wish history</li>
+            <li data-i18n="missing.stats">Statistics and achievements</li>
+            <li data-i18n="missing.money">Money or spending</li>
+            <li data-i18n="missing.accounts">Accounts, sign-in, and cloud sync</li>
+            <li data-i18n="missing.uploads">Automatic uploads and analytics</li>
+            <li data-i18n="missing.offline">Offline service-worker support</li>
+            <li data-i18n="missing.backups">Backups</li>
           </ul>
         </div>
       </section>
     </main>
 
-    <nav class="tabbar" role="tablist" aria-label="Primary">
+    <nav class="tabbar" role="tablist" data-i18n-aria="nav.primary" aria-label="Primary">
       <button type="button" role="tab" id="tab-gallery" aria-controls="panel-gallery" aria-selected="true" tabindex="0">
         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="7.5" height="7.5" rx="1.4"></rect><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.4"></rect><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.4"></rect><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.4"></rect></svg>
-        <span>Gallery</span>
+        <span data-i18n="nav.gallery">Gallery</span>
       </button>
       <button type="button" role="tab" id="tab-reinforce" aria-controls="panel-reinforce" aria-selected="false" tabindex="-1">
         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="7.2"></circle><circle cx="12" cy="12" r="2.1"></circle></svg>
-        <span>Reinforce</span>
+        <span data-i18n="nav.reinforce">Reinforce</span>
       </button>
       <button type="button" role="tab" id="tab-history" aria-controls="panel-history" aria-selected="false" tabindex="-1">
         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 7h14M5 12h14M5 17h9"></path></svg>
-        <span>History</span>
+        <span data-i18n="nav.history">History</span>
       </button>
       <button type="button" role="tab" id="tab-statistics" aria-controls="panel-statistics" aria-selected="false" tabindex="-1">
         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4.5 19 12l-7 7.5L5 12z"></path></svg>
-        <span>Statistics</span>
+        <span data-i18n="nav.statistics">Statistics</span>
       </button>
       <button type="button" role="tab" id="tab-settings" aria-controls="panel-settings" aria-selected="false" tabindex="-1">
         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 8h16M4 16h16"></path><circle cx="9" cy="8" r="2.1"></circle><circle cx="15" cy="16" r="2.1"></circle></svg>
-        <span>Settings</span>
+        <span data-i18n="nav.settings">Settings</span>
       </button>
     </nav>
 
     <div id="debug-overlay" class="overlay" hidden>
       <div role="dialog" aria-labelledby="debug-title" id="debug-dialog" class="dialog">
         <div class="dialog-head">
-          <h2 id="debug-title" tabindex="-1">Diagnostics</h2>
-          <button type="button" id="debug-close">Close</button>
+          <h2 id="debug-title" tabindex="-1" data-i18n="debug.title">Diagnostics</h2>
+          <button type="button" id="debug-close" data-i18n="debug.close">Close</button>
         </div>
 
         <div id="debug-form">
-          <p>App version <strong id="debug-version"></strong></p>
-          <p>Events <strong id="event-count"></strong>. The trace holds at most 200 interface actions, then drops the oldest. It is not a backup. Wish text, themes, priority labels, record identifiers, and record times are not included.</p>
-          <ul id="event-sample" aria-label="Recent interface actions"></ul>
-          <p id="note-disclosure" class="hint">This note is optional. It is not written into the event log. Tick “Include the note” to copy the words you type into the file. You will see them in the preview before anything is shared or saved. A note can contain private content. Up to 2,000 characters. Nothing is sent unless you choose Share or save file.</p>
-          <label class="note-label" for="diagnostic-note">Optional note</label>
-          <textarea id="diagnostic-note" maxlength="2000" rows="4" autocomplete="off" spellcheck="true" aria-describedby="note-disclosure" placeholder="Optional note"></textarea>
-          <label class="choice"><input type="checkbox" id="include-note" /> Include the note</label>
-          <button type="button" class="primary" id="preview-export">Preview export</button>
+          <p><span data-i18n="debug.versionLabel">App version</span> <strong id="debug-version"></strong></p>
+          <p><span data-i18n="debug.eventsLead">Events</span> <strong id="event-count"></strong>. <span data-i18n="debug.eventsRest">The trace holds at most 200 interface actions, then drops the oldest. It is not a backup. Wish text, themes, priority labels, record identifiers, and record times are not included.</span></p>
+          <ul id="event-sample" data-i18n-aria="debug.eventsAria" aria-label="Recent interface actions"></ul>
+          <p id="note-disclosure" class="hint" data-i18n="debug.noteHelp">This note is optional. It is not written into the event log. Tick “Include the note” to copy the words you type into the file. You will see them in the preview before anything is shared or saved. A note can contain private content. Up to 2,000 characters. Nothing is sent unless you choose Share or save file.</p>
+          <label class="note-label" for="diagnostic-note" data-i18n="debug.noteLabel">Optional note</label>
+          <textarea id="diagnostic-note" maxlength="2000" rows="4" autocomplete="off" spellcheck="true" aria-describedby="note-disclosure" placeholder="Optional note" data-i18n-placeholder="debug.notePlaceholder"></textarea>
+          <label class="choice"><input type="checkbox" id="include-note" /> <span data-i18n="debug.include">Include the note</span></label>
+          <button type="button" class="primary" id="preview-export" data-i18n="debug.preview">Preview export</button>
         </div>
 
         <div id="debug-preview" hidden>
-          <h3>Export preview</h3>
+          <h3 data-i18n="debug.previewHeading">Export preview</h3>
           <p id="export-summary" tabindex="-1"></p>
           <pre id="export-json" tabindex="0"></pre>
           <div class="action-row">
-            <button type="button" class="primary" id="confirm-export">Share or save file</button>
-            <button type="button" id="preview-back">Back</button>
+            <button type="button" class="primary" id="confirm-export" data-i18n="debug.share">Share or save file</button>
+            <button type="button" id="preview-back" data-i18n="debug.back">Back</button>
           </div>
-          <p id="export-help" class="hint">If this browser can share a file, the system share sheet opens and you can cancel it. Otherwise the file downloads. Cancelling does not send anything. This app does not post the file by itself. A system share sheet may cover this page; Debug cannot be promised above that sheet.</p>
+          <p id="export-help" class="hint" data-i18n="debug.help">If this browser can share a file, the system share sheet opens and you can cancel it. Otherwise the file downloads. Cancelling does not send anything. This app does not post the file by itself. A system share sheet may cover this page; Debug cannot be promised above that sheet.</p>
         </div>
         <p id="debug-status" role="status"></p>
       </div>
     </div>
 
     <noscript>
-      <p class="noscript">Wish shell needs JavaScript. Without it, wishes are not stored.</p>
+      <p class="noscript" data-i18n="noscript">Wish shell needs JavaScript. Without it, wishes are not stored.</p>
     </noscript>
   </body>
 </html>

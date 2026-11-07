@@ -8,8 +8,8 @@
     <meta name="theme-color" content="#141b24" />
     <meta name="format-detection" content="telephone=no" />
     <title>Wish shell</title>
-    <script type="module" crossorigin src="./assets/index-Cn2U5ylV.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-OZJdHBz7.css">
+    <script type="module" crossorigin src="./assets/index-DPI5zDln.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CQaFVUZg.css">
   </head>
   <body>
     <a class="skip" href="#content">Skip to content</a>
@@ -28,16 +28,46 @@
 
     <main id="content" class="content" tabindex="-1">
       <section id="panel-gallery" role="tabpanel" aria-labelledby="tab-gallery" tabindex="0">
-        <div class="card">
-          <p class="banner">Not implemented</p>
-          <h2>Gallery</h2>
-          <p>Wishes are not stored. There is nowhere to add, edit, or keep a wish.</p>
+        <p id="shared-origin-warning" class="warning" hidden></p>
+        <div id="wish-browser">
+          <div class="card">
+            <h2>Gallery</h2>
+            <p id="storage-notice"></p>
+            <form id="wish-form">
+              <label class="note-label" for="wish-text">Wish</label>
+              <textarea id="wish-text" maxlength="2000" rows="4" autocomplete="off" spellcheck="true" placeholder="Wish text"></textarea>
+              <fieldset>
+                <legend>Theme</legend>
+                <label class="choice"><input type="radio" name="wish-theme" value="Care" /> Care</label>
+                <label class="choice"><input type="radio" name="wish-theme" value="Learn" /> Learn</label>
+                <label class="choice"><input type="radio" name="wish-theme" value="Make" /> Make</label>
+                <label class="choice"><input type="radio" name="wish-theme" value="Place" /> Place</label>
+                <label class="choice"><input type="radio" name="wish-theme" value="Practice" /> Practice</label>
+              </fieldset>
+              <label class="note-label" for="wish-priority">Priority label</label>
+              <input id="wish-priority" type="text" maxlength="40" autocomplete="off" spellcheck="true" />
+              <p class="hint">Optional. A label only, not a rank, and it does not order the list.</p>
+              <button type="submit" class="primary" id="wish-save">Save wish</button>
+              <p id="wish-save-status" role="status"></p>
+            </form>
+          </div>
+          <div class="card">
+            <h2 id="saved-wishes-heading">Saved wishes</h2>
+            <p id="wish-load-status" role="status"></p>
+            <p id="wish-empty" hidden></p>
+            <p id="wish-hidden-note" class="hint" hidden></p>
+            <ul id="wish-list" aria-labelledby="saved-wishes-heading"></ul>
+          </div>
         </div>
-        <article class="card sample" aria-label="Layout sample">
-          <p class="sample-flag">Layout sample only</p>
-          <div class="sample-frame" aria-hidden="true"></div>
-          <p>This empty frame shows the gallery shape. It is not a wish, and it is not saved.</p>
-        </article>
+        <div id="wish-detail" class="card" hidden>
+          <button type="button" id="wish-detail-back">Back to gallery</button>
+          <h2>Wish</h2>
+          <p id="wish-detail-theme"></p>
+          <p id="wish-detail-priority"></p>
+          <p id="wish-detail-text"></p>
+          <p id="wish-detail-added"></p>
+          <p class="hint">Editing and deleting are not available.</p>
+        </div>
       </section>
 
       <section id="panel-reinforce" role="tabpanel" aria-labelledby="tab-reinforce" tabindex="0" hidden>
@@ -52,7 +82,7 @@
         <div class="card">
           <p class="banner">Not implemented</p>
           <h2>History</h2>
-          <p>No wish activity is recorded here. Debug keeps a short technical trace of interface actions. That trace is not a history of wishes, and an export is not a backup.</p>
+          <p>No history of changes is kept here. Wishes can be stored from the gallery. This screen does not list edits. Diagnostics are not that history, and an export is not a backup.</p>
         </div>
       </section>
 
@@ -67,7 +97,7 @@
       <section id="panel-settings" role="tabpanel" aria-labelledby="tab-settings" tabindex="0" hidden>
         <div class="card">
           <h2>Settings</h2>
-          <p>Sound and rain preferences can be stored on this device. Wishes are not.</p>
+          <p>Sound and rain preferences can be stored on this device. Wishes are stored separately in this browser. They are not encrypted, and this app does not upload them.</p>
         </div>
 
         <fieldset class="card">
@@ -98,7 +128,6 @@
         <div class="card">
           <h2>Not in this version</h2>
           <ul>
-            <li>Saving wishes</li>
             <li>Editing or deleting wishes</li>
             <li>Photos, voice, or other attachments</li>
             <li>Reinforce recording and reminders</li>
@@ -108,6 +137,7 @@
             <li>Accounts, sign-in, and cloud sync</li>
             <li>Automatic uploads and analytics</li>
             <li>Offline service-worker support</li>
+            <li>Backups</li>
           </ul>
         </div>
       </section>
@@ -145,7 +175,7 @@
 
         <div id="debug-form">
           <p>App version <strong id="debug-version"></strong></p>
-          <p>Events <strong id="event-count"></strong>. The trace holds at most 200 interface actions, then drops the oldest. It is not a backup.</p>
+          <p>Events <strong id="event-count"></strong>. The trace holds at most 200 interface actions, then drops the oldest. It is not a backup. Wish text, themes, priority labels, record identifiers, and record times are not included.</p>
           <ul id="event-sample" aria-label="Recent interface actions"></ul>
           <p id="note-disclosure" class="hint">This note is optional. It is not written into the event log. Tick “Include the note” to copy the words you type into the file. You will see them in the preview before anything is shared or saved. A note can contain private content. Up to 2,000 characters. Nothing is sent unless you choose Share or save file.</p>
           <label class="note-label" for="diagnostic-note">Optional note</label>
@@ -169,7 +199,7 @@
     </div>
 
     <noscript>
-      <p class="noscript">Wish shell needs JavaScript to show this preview. It still does not store wishes.</p>
+      <p class="noscript">Wish shell needs JavaScript. Without it, wishes are not stored.</p>
     </noscript>
   </body>
 </html>
